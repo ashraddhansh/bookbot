@@ -16,11 +16,11 @@ def get_char_count(file_contents, char):
     
     return word_count
 
-def get_char_dict():
+def get_char_dict(bookPath):
     count_dict = {}
 
     for i in range(ord('a'), ord('z') + 1):
-        count = get_char_count(get_book_text("./books/frankenstein.txt"),chr(i))
+        count = get_char_count(get_book_text(bookPath),chr(i))
         count_dict[chr(i)] = count
     return count_dict
 
@@ -36,7 +36,7 @@ def get_sorted_list(count_dict):
     def sort_on(items):
         return items["num"]
     unsorted_list.sort(reverse = True, key = sort_on)
-    print(unsorted_list)
+    return unsorted_list
 
 
 
