@@ -22,5 +22,21 @@ def get_char_dict():
     for i in range(ord('a'), ord('z') + 1):
         count = get_char_count(get_book_text("./books/frankenstein.txt"),chr(i))
         count_dict[chr(i)] = count
-    print(count_dict)
+    return count_dict
+
+
+def get_sorted_list(count_dict):
+    unsorted_list = []
+    for key in count_dict:
+        char_dict = {}
+        char_dict["char"] = key
+        char_dict["num"] = count_dict[key]
+        unsorted_list.append(char_dict)
+
+    def sort_on(items):
+        return items["num"]
+    unsorted_list.sort(reverse = True, key = sort_on)
+    print(unsorted_list)
+
+
 
